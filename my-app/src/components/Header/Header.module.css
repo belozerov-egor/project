@@ -1,0 +1,14 @@
+.header {
+    display: flex;
+    background-color: green;
+}
+
+.header img {
+    width: 20px;
+}
+
+.loginBlock a{
+    text-decoration: none;
+    color: white;
+    margin-left: 50px;
+}
