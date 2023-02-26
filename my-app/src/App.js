@@ -1,12 +1,10 @@
 import React, {useEffect} from 'react';
 import './App.css';
-import Header from "./components/Header/Header";
-import Profile from "./components/Profile/Profile";
 import News from "./components/News/News";
 import {Route, Routes} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
-import ProfileContainer, {withRouter} from "./components/Profile/ProfileContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import {connect} from "react-redux";
@@ -21,9 +19,7 @@ const App = (props) =>   {
     },[])
 if(!props.initialized){
     return <Preloader/>}
-
         return (
-
             <div className="app-wrapper">
                 <HeaderContainer/>
                 <div className="app-wrapper-content">
@@ -42,8 +38,6 @@ if(!props.initialized){
                 </div>
 
             </div>
-
-
         );
     }
 

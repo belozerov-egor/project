@@ -5,16 +5,18 @@ import {NavLink} from "react-router-dom";
 import axios from "axios";
 import {toggleFollowingProgress} from "../../redux/users-reducer";
 import {followAPI} from "../../api/api";
+import Paginator from "./Paginator";
+import User from "./User";
 
 let Users = (props) => {
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+  /*  let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     let pages = [];
     for (let i = 1; i <= 30; i++) {
         pages.push(i);
-    }
+    }*/
 
     return <div>
-        <div>
+        {/*  <div>
             {pages.map(p => {
                     return <span className={props.currentPage === p && s.selectPage}
                                  onClick={() => {
@@ -22,40 +24,21 @@ let Users = (props) => {
                                  }}> {p} </span>
                 }
             )}
-        </div>
-
+        </div>*/}
+        <Paginator currentPage={props.currentPage}
+                   onPageChanged={props.onPageChanged}
+                   totalUsersCount={props.totalUsersCount}
+                   pageSize={props.pageSize}/>
         {
-            props.users.map(u => <div key={u.id}>
-                <span>
-                    <div className={s.profileLink}>
-                        <NavLink to={"../profile/" + u.id}>
-                        <img src={u.photos.small != null ? u.photos.small : userPhoto} className={s.userPhoto}/>
-                            </NavLink>
-                    </div>
-                    <div>
-                        {u.followed
-                            ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                                /*props.toggleFollowingProgress(true, u.id);*/
-                                props.unfollow(u.id);
-                            }}>Unfollow</button>
-                            : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() =>
-                            {props.follow(u.id)}}>Follow</button>}
+            props.users.map(u => <User
+                user={u}
+                followingInProgress = {props.followingInProgress}
+                follow = {props.follow}
+                unfollow={props.unfollow}
+                key={u.id}/> )
+        }
 
-                    </div>
-                </span>
-                <span>
-                    <span>
-                        <div>{u.name}</div>
-                        <div>{u.status} </div>
-                    </span>
-                    <span>
-                        <div>{"u.location.country"}</div>
-                        <div>{"u.location.city"}</div>
-                    </span>
-                </span>
-            </div>)
         }</div>
-
 }
 
 
