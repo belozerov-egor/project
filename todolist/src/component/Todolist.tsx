@@ -1,4 +1,4 @@
-import React, {ChangeEvent, KeyboardEvent, MouseEvent, MouseEventHandler, useState} from "react";
+import React, {ChangeEvent, FC, KeyboardEvent, MouseEvent, MouseEventHandler, useState} from "react";
 import {FilterValueType} from "../App";
 
 export type TaskType = {
@@ -15,7 +15,7 @@ type PropsType = {
     addTask: (title: string) => void
 }
 
-export const Todolist = (props: PropsType) => {
+export const Todolist: FC<PropsType> = (props) => {
     const [newTaskTitle, setNewTaskTile] = useState("")
 
     const onNewTaskTitleChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -40,7 +40,7 @@ export const Todolist = (props: PropsType) => {
     const onCompletedClickHandler = () => props.changeFilter("completed")
 
     return (
-        <div>
+        <div className="todolist">
             <h3>{props.title}</h3>
             <div>
                 <input

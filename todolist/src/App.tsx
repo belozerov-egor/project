@@ -6,7 +6,7 @@ import {v1} from "uuid";
 export type FilterValueType ="all" | "completed" | "active"
 
 
-function App() {
+function App(): JSX.Element {
 
 
 
@@ -53,11 +53,17 @@ function App() {
 
     return (
         <div className="App">
-            <Todolist title="What to learn" tasks={tasksForTodolist}
+
+            <Todolist  title="Что нужно сдлеать Юлечке" tasks={tasksForTodolist}
                       removeTask={removeTask}
                       changeFilter = {changeFilter}
                       addTask={ addTask}
-            />
+            />  <Todolist  title="What to learn" tasks={tasksForTodolist}
+                           removeTask={removeTask}
+                           changeFilter = {changeFilter}
+                           addTask={ addTask}
+        />
+
 
 
         </div>
