@@ -34,7 +34,7 @@ export const message0: MessageType = {
         name: 'Some Name',  // можно менять
     },
     message: {
-        text: 'some textsome textsome textsome textsome textsome textsome text', // можно менять
+        text: 'some text', // можно менять
         time: '22:00', // можно менять
     },
 }
@@ -57,15 +57,11 @@ const HW1 = () => {
             <div className={s2.hw}>
                 {/*проверка отображения (не менять)*/}
                 <div>
-                    <Message message={{ id: message0.id }}
-                             text={message0.message.text}
-                             user={message0.user}
-                             time={message0.message.time}
+                    <Message message={message0}
+
                     />
-                    <FriendMessage message={{ id: friendMessage0.id }}
-                                   text={friendMessage0.message.text}
-                                   user={friendMessage0.user}
-                                   time={friendMessage0.message.time}
+                    <FriendMessage message={friendMessage0}
+
                     />
                 </div>
 
