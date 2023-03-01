@@ -4,7 +4,8 @@
 
 .friendImageAndText {
     display: flex;
-    margin-bottom: 5px;
+    justify-content: flex-start;
+    align-items: flex-end;
 }
 
 .friendImageAndText img {
@@ -14,12 +15,30 @@
 }
 
 .friendText {
-    background: #F5F7FB;
-    box-shadow: 0px 5px 20px rgba(29, 33, 38, 0.03), 0px 1px 2px rgba(29, 33, 38, 0.1);
+    position: relative;
+    background-color: #f5f7fb;
+    min-width: min-content;
+    width: 530px;
+    min-height: 60px;
+    max-height: max-content;
+    border-radius: 15px;
+    padding: 10px 15px;
+    margin-left: 20px ;
 }
 
 .friendText:after {
-
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 17px solid transparent;
+    border-right-color: #f5f7fb;
+    border-left: 0;
+    border-bottom: 0;
+    margin-top: 10px;
+    margin-left: -5px;
 }
 
 .friendName {
