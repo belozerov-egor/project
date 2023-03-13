@@ -33,6 +33,21 @@ function App(): JSX.Element {
         setTasks(filterTask);
     }
 
+    const changeStatus = (taskId: string , isDone: boolean) => {
+        let task = tasks.find(t=> t.id === taskId)
+            //тоже самое, что и выше
+            /*if (t.id === taskId) {
+                return true
+            }else {
+                return false
+            }*/
+        if (task){
+            task.isDone = isDone
+        }
+        let copy = [...tasks ]
+        setTasks(copy)
+    }
+
     function addTask(title: string) {
         let newTask = {id: v1(), title: title, isDone: false};
         let newTasks = [newTask, ...tasks]
@@ -58,11 +73,13 @@ function App(): JSX.Element {
                       removeTask={removeTask}
                       changeFilter = {changeFilter}
                       addTask={ addTask}
-            />  <Todolist  title="What to learn" tasks={tasksForTodolist}
+                       changeTaskStatus={changeStatus}
+                       filter = {filter}
+            />  {/*<Todolist  title="What to learn" tasks={tasksForTodolist}
                            removeTask={removeTask}
                            changeFilter = {changeFilter}
                            addTask={ addTask}
-        />
+        />*/}
 
 
 
